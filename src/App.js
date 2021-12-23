@@ -14,10 +14,13 @@ function App() {
   let style = {color : 'white', fontSize : '30px'}
   let imgStyle ={width: '60px'}
 
+  let [modal, showModal] = useState(false)
+
   function 타이틀변경(){
     var newArray = [...VSCode];
-    newArray[0] = 'Intelli J 단축키!';
+    newArray[0] = 'Intelnpmli J 단축키!';
     a(newArray);
+
   }
 
   
@@ -43,9 +46,29 @@ function App() {
         <p>12월 10일 발행</p>
         <hr/>
       </div>
+
+      <button onClick={() => {showModal(!modal)}}>버튼</button>
+      {
+        modal === true
+        ? <Modal />
+        : null
+      }
+      
     </div>
     
   );
 }
+
+function Modal(){
+  return(
+    <div className="modal">
+        <h2>제목</h2>
+        <p>날짜</p>
+        <p>상세내용</p>
+      </div>
+  )
+}
+
+
 
 export default App;
